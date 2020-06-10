@@ -30,6 +30,7 @@ function getCode(){
 
 function getToken(){
     const formData = new FormData();
+    var data;
 
     formData.append("client_id", APP_ID);
     formData.append("client_secret", APP_SECRET);
@@ -40,9 +41,7 @@ function getToken(){
     fetch('https://api.instagram.com/oauth/access_token', {
         method: 'POST',
         body: formData
-    }).then(response => response.json()).then(json => {
-        USER_ID = json["user_id"];
-        AUTH_TOKEN = json["access_token"]; 
-    });
+    }).then(response => response.json()).then(json => data = json);
+    console.log(data);
 //}).then(response => response.json()).then(json => console.log(json["user_id"]));
 }
