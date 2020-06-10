@@ -9,8 +9,17 @@ function load(){
     if(AUTH_CODE == ""){
         document.write("<a href=" +AUTH_WINDOW_URL+ ">Authorize Instagram</a>");
     } else {
-        
+        AUTH_CODE = getCode();
+        alert(AUTH_CODE);
     }
 }
 
 window.onload = load;
+
+function getCode(){
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const authCodeWithExtraChars = urlParams.get('code');
+    const authCode = authCodeWithExtraChars.slice(0,authCodeWithExtraChars.length-2);
+    return authCode;
+}
