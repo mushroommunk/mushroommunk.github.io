@@ -19,6 +19,6 @@ function getCode(){
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const authCodeWithExtraChars = urlParams.get('code');
-    AUTH_CODE = authCodeWithExtraChars.slice(0,authCodeWithExtraChars.length-2);
+    AUTH_CODE = authCodeWithExtraChars.slice(0,authCodeWithExtraChars.length);
     return AUTH_CODE;
 }
