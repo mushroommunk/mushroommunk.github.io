@@ -38,5 +38,5 @@ function getToken(){
     fetch('https://api.instagram.com/oauth/access_token', {
         method: 'POST',
         body: formData
-    }).then(response => response.json()).then(json => console.log(json.user_id));
+    }).then(response => response.json()).then(json => console.log(json["user_id"]));
 }
