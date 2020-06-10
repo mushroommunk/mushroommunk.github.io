@@ -6,7 +6,7 @@ var AUTH_CODE = "";
 
 function load(){
 
-    if(AUTH_CODE == null){
+    if(AUTH_CODE == ""){
         document.write("<a href=" +AUTH_WINDOW_URL+ ">Authorize Instagram</a>");
     } else {
         
