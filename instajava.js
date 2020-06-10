@@ -9,7 +9,7 @@ function load(){
     if(getCode() == ""){
         document.write("<a href=" +AUTH_WINDOW_URL+ ">Authorize Instagram</a>");
     } else {
-        
+        getToken();
     }
 }
 
@@ -24,4 +24,19 @@ function getCode(){
     } else {
         return "";
     }
+}
+
+function getToken(){
+    const formData = new FormData();
+
+    formData.append("client_id", APP_ID);
+    formData.append("client_secret", APP_SECRET);
+    formData.append("grant_type", "authorization_code");
+    formData.append("redirect_uri", APP_REDIRECT_URI);
+    formData.append("code", AUTH_CODE);
+
+    fetch('https://api.instagram.com/oauth/access_token', {
+        method: 'POST',
+        body: formData
+    }).then(response => response.json()).then(json => console.log(json));
 }
