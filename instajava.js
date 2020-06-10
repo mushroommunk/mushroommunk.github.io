@@ -41,8 +41,8 @@ function getToken(){
         method: 'POST',
         body: formData
     }).then(response => response.json()).then(json => {
-        AUTH_TOKEN = json["access_token"]; 
         USER_ID = json["user_id"];
+        AUTH_TOKEN = json["access_token"]; 
     });
 //}).then(response => response.json()).then(json => console.log(json["user_id"]));
 }
