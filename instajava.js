@@ -6,10 +6,9 @@ var AUTH_CODE = "";
 
 function load(){
 
-    if(AUTH_CODE == ""){
+    if(getCode() == ""){
         document.write("<a href=" +AUTH_WINDOW_URL+ ">Authorize Instagram</a>");
     } else {
-        AUTH_CODE = getCode();
         alert(AUTH_CODE);
     }
 }
@@ -20,6 +19,6 @@ function getCode(){
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const authCodeWithExtraChars = urlParams.get('code');
-    const authCode = authCodeWithExtraChars.slice(0,authCodeWithExtraChars.length-2);
-    return authCode;
+    AUTH_CODE = authCodeWithExtraChars.slice(0,authCodeWithExtraChars.length-2);
+    return AUTH_CODE;
 }
