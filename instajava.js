@@ -44,8 +44,5 @@ function getToken(){
     }).then(response => response.json()).then(json => {
         AUTH_TOKEN = json["access_token"];
         USER_ID = json["user_id"];
-        console.log(AUTH_TOKEN);
-        console.log(USER_ID);
     });
-//}).then(response => response.json()).then(json => console.log(json["user_id"]));
 }
